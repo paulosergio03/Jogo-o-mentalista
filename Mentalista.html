@@ -1,0 +1,158 @@
+<html>
+
+<head>
+
+  <title>
+    Mentalista / gabsc
+  </title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+<style>
+    body {
+  font-family: "Roboto Mono", monospace;
+  min-height: 600px;
+  background-image: url("");
+  background-color: red;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.containerdiv {
+  text-align: center;
+  padding: 20px;
+  height: 100px;
+}
+
+.requestdiv {
+  text-align: center;
+  padding: 20px;
+  height: 225px;
+  background: black;
+  margin: auto;
+  margin-top: 100px;
+  width: 500px;
+}
+
+.page-title {
+  color: black;
+  margin: auto;
+  background: white;
+  width: fit-content;
+}
+
+.page-subtitle {
+  color: #ffffff;
+  margin-top: 16px;
+}
+
+.page-logo {
+  width: 200px;
+}
+
+
+@media (max-height: 500px) {
+  body {
+    min-height: 800px;
+  }
+}
+
+input {
+  margin: 4px;
+  padding: 6px;
+  border-radius: 0px;
+  border: none;
+}
+
+button {
+  margin-top: 12px;
+  padding: 8px 17px;
+  border-radius: 10px;
+  background: red;
+  border: none;
+  display: inline-block;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 1px;
+  opacity: 1;
+}
+
+.resultado {
+  color:white;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.request {
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+body:next {
+  display: none;
+  content: url("https://raw.githubusercontent.com/gist/gabscrobson/6ef4beab848681a3055c58bf77b0b233/raw/fc1a1d893b59b8b90b983566005ff3c4c2bd7920/imersaodevmistery3.svg");
+}
+
+.page-logo:hover {
+  content: url("https://raw.githubusercontent.com/gist/gabscrobson/6ef4beab848681a3055c58bf77b0b233/raw/fc1a1d893b59b8b90b983566005ff3c4c2bd7920/imersaodevmistery3.svg");
+}
+
+</style>
+
+</head>
+
+<body>
+
+  <div class="containerdiv">
+    <h1 class="page-title">
+      Mentalista
+    </h1>
+    <p class="page-subtitle">
+      Adivinhe o número secreto
+    </p>
+    <img src="https://raw.githubusercontent.com/gist/gabscrobson/6ef4beab848681a3055c58bf77b0b233/raw/f63169f3f765d19f8780d11bc192d79c30a70245/imersaodevmistery2.svg" class="page-logo" alt=""><br>
+  </div>
+
+  <div class="requestdiv">
+    <p class="request">
+      Digite um número de 0 a 10
+    </p>
+    <input type="number" id="valor" /><br>
+    <button type="submit" onclick="Chutar()">Chutar</button>
+    <button type="submit" onclick="Resetar()">Resetar</button>
+    <h2 class="resultado" id="resultado">Bem vindo!</h2>
+    <h3 class="resultado" id="tentativas"></h3>
+  </div>
+
+  <div class="linksdiv">
+    <a href="https://alura.com.br/" target="_blank">
+      <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+    </a>
+    <a href="https://github.com/gabscrobson" target="_blank">
+      <img src="https://www.alcantaradevelopment.com/static/media/githublogowhite.779520a2.png" alt="" class="github">
+    </a>
+  </div>
+  <script src="main.js"></script>
+  <script>
+      var numeroSecreto = parseInt(Math.random() * 11);
+function Chutar() {
+  var elementoResultado = document.getElementById("resultado");
+  var chute = parseInt(document.getElementById("valor").value);
+  console.log(chute);
+  if (chute == numeroSecreto) {
+    elementoResultado.innerHTML = "Você acertou";
+  } else if (chute > 10 || chute < 0) {
+    elementoResultado.innerHTML = "Você deve digitar um número de 0 a 10";
+  } else {
+    elementoResultado.innerHTML =
+      "Você errou, o número Secreto era " + numeroSecreto;
+  }
+}
+
+  </script>
+</body>
+
+</html>
